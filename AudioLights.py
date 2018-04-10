@@ -1,8 +1,9 @@
-from Tkinter import *
+from tkinter import *
 import numpy as np;
 import time;
 import RPi.GPIO as GPIO
-import Tkinter as tkint                    #Integrated Graphics Library
+import tkinter as tkint                    #Integrated Graphics Library
+#import tkMessageBox
 
 #7 Buttons
 #7 Lights
@@ -44,7 +45,7 @@ def menu():
     print("3. Communicate")
     print("4. Quit")
     
-    choice = raw_input("Select an option: \n");
+    choice = input("Select an option: \n");
     choice = choice.lower()
     while True:
         if choice == "record" or choice == "1":
@@ -60,7 +61,7 @@ def menu():
             return;
         else:
             print("Unknown Choice")
-            choice = raw_input("Select an option: \n");
+            choice = input("Select an option: \n");
             choice = choice.lower()    
 
 def record():
@@ -81,12 +82,12 @@ while True:
     print("1. Simple User Interface")
     print("2. Graphical User Interface")
     print("3. Quit")
-    input = raw_input("Type in the option number to select")
-    if input == "1":
+    inp = input("Type in the option number to select: ")
+    if inp == "1":
         menu()
-    elif input == "2":
+    elif inp == "2":
         guiMenu(top = tkint.Tk())
-    elif input == "3":
+    elif inp == "3":
         quit()
     else:
         print("Invalid option, please select one of the options.")
