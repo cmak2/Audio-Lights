@@ -1,7 +1,8 @@
-
+from Tkinter import *
 import numpy as np;
 import time;
 import RPi.GPIO as GPIO
+import Tkinter as tkint                    #Integrated Graphics Library
 
 #7 Buttons
 #7 Lights
@@ -21,12 +22,28 @@ pin7 = 27                   #G
 
 
 #Processes Menu option
+#GUI Menu
+def guiMenu(top):
+    menuLabel       = tkint.Label(top, text = ".:Menu Options:.")
+    recordButton    = tkint.Button(top, text = "1. Record", command = record)
+    playButton      = tkint.Button(top, text = "2. Play Music", command = play)
+    commButton      = tkiny.Button(top, text = "3. Communicate", command = comm)
+    quitButton      = tkint.Button(top, text = "4. Quit", command = qu)
+    menuLabel.pack()
+    playButton.pack()
+    commButton.pack()
+    quitButton.pack()
+    initiate
+
+#Basic Menu
 def menu():
+    
     print(".:Menu Options:.")
     print("1. Record")
     print("2. Play Music")
     print("3. Communicate")
     print("4. Quit")
+    
     choice = raw_input("Select an option: \n");
     choice = choice.lower()
     while True:
@@ -44,7 +61,35 @@ def menu():
         else:
             print("Unknown Choice")
             choice = raw_input("Select an option: \n");
-            choice = choice.lower()
-        
+            choice = choice.lower()    
+
+def record():
+    return
+def play():
+    return
+def comm():
+    return
+def qu():
+    quit()
+    return
+
+def initiate(top = tkint.Tk()):
+    top.mainloop()
+
+while True:
+    print("Select an option:")
+    print("1. Simple User Interface")
+    print("2. Graphical User Interface")
+    print("3. Quit")
+    input = raw_input("Type in the option number to select")
+    if input == "1":
+        menu()
+    elif input == "2":
+        guiMenu(top = tkint.Tk())
+    elif input == "3":
+        quit()
+    else:
+        print("Invalid option, please select one of the options.")
+
 
     
